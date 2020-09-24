@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Resources\User as UserResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +14,10 @@ use App\Http\Resources\User as UserResource;
 |
 */
 
-Route::post('login', [LoginController::class, 'authenticate']);
-
 Route::group([
-    'middleware' => 'auth:sanctum'
+    'prefix' => 'auth'
 ], function () {
-    Route::get('/user', function (Request $request) {
-        return new UserResource($request->user());
-    });
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::get('user', [AuthController::class, 'user'])->middleware('auth:sanctum');
 });
