@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\User as UserResource;
@@ -15,7 +16,7 @@ use App\Http\Resources\User as UserResource;
 |
 */
 
-Route::post('login', 'LoginController@authenticate');
+Route::post('login', [LoginController::class, 'authenticate']);
 
 Route::group([
     'middleware' => 'auth:sanctum'
