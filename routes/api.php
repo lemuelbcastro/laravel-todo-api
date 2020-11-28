@@ -21,3 +21,11 @@ Route::group([
     Route::post('register', [AuthController::class, 'register']);
     Route::get('user', [AuthController::class, 'user'])->middleware('auth:sanctum');
 });
+
+Route::group([
+    'middleware' => 'auth:sanctum'
+], function () {
+    Route::apiResources([
+        'todos' => TodoController::class,
+    ]);
+});
