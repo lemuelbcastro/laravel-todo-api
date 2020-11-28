@@ -78,6 +78,6 @@ class TodoController extends Controller
     {
         $todo->delete();
 
-        return new FormLedgerResource($todo);
+        return new TodoResource($todo);
     }
 }
