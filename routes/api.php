@@ -28,4 +28,8 @@ Route::group([
     Route::apiResources([
         'todos' => TodoController::class,
     ]);
+
+    Route::apiResources([
+        'users' => UserController::class,
+    ]);
 });
