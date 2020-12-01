@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     {
         User::factory()->create([
             'email' => 'administrator@email.com',
-        ]);
+        ])->assignRole('administrator');
 
         User::factory()->create([
             'email' => 'user@email.com',
-        ]);
+        ])->assignRole('user');
     }
 }
