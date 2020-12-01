@@ -14,24 +14,28 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(['name' => 'administrator'])
-            ->givePermissionTo([
-                'create todos',
-                'fetch todos',
-                'update todos',
-                'delete todos',
-                'create users',
-                'fetch users',
-                'update users',
-                'delete users',
-            ]);
+        Role::create([
+            'guard_name' => 'api',
+            'name' => 'administrator',
+        ])->givePermissionTo([
+            'create todos',
+            'fetch todos',
+            'update todos',
+            'delete todos',
+            'create users',
+            'fetch users',
+            'update users',
+            'delete users',
+        ]);
 
-        Role::create(['name' => 'user'])
-            ->givePermissionTo([
-                'create todos',
-                'fetch todos',
-                'update todos',
-                'delete todos',
-            ]);
+        Role::create([
+            'guard_name' => 'api',
+            'name' => 'user',
+        ])->givePermissionTo([
+            'create todos',
+            'fetch todos',
+            'update todos',
+            'delete todos',
+        ]);
     }
 }

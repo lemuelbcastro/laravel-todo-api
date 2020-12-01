@@ -16,13 +16,13 @@ class PermissionSeeder extends Seeder
     {
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['name' => 'create todos']);
-        Permission::create(['name' => 'fetch todos']);
-        Permission::create(['name' => 'update todos']);
-        Permission::create(['name' => 'delete todos']);
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'fetch users']);
-        Permission::create(['name' => 'update users']);
-        Permission::create(['name' => 'delete users']);
+        Permission::create(['guard_name' => 'api', 'name' => 'create todos']);
+        Permission::create(['guard_name' => 'api', 'name' => 'fetch todos']);
+        Permission::create(['guard_name' => 'api', 'name' => 'update todos']);
+        Permission::create(['guard_name' => 'api', 'name' => 'delete todos']);
+        Permission::create(['guard_name' => 'api', 'name' => 'create users']);
+        Permission::create(['guard_name' => 'api', 'name' => 'fetch users']);
+        Permission::create(['guard_name' => 'api', 'name' => 'update users']);
+        Permission::create(['guard_name' => 'api', 'name' => 'delete users']);
     }
 }
