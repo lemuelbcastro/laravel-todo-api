@@ -16,13 +16,18 @@ class PermissionSeeder extends Seeder
     {
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['guard_name' => 'api', 'name' => 'create todos']);
-        Permission::create(['guard_name' => 'api', 'name' => 'fetch todos']);
-        Permission::create(['guard_name' => 'api', 'name' => 'update todos']);
-        Permission::create(['guard_name' => 'api', 'name' => 'delete todos']);
-        Permission::create(['guard_name' => 'api', 'name' => 'create users']);
-        Permission::create(['guard_name' => 'api', 'name' => 'fetch users']);
-        Permission::create(['guard_name' => 'api', 'name' => 'update users']);
-        Permission::create(['guard_name' => 'api', 'name' => 'delete users']);
+        Permission::create(['guard_name' => 'api', 'name' => 'permissions.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.create']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.update']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.delete']);
+        Permission::create(['guard_name' => 'api', 'name' => 'todos.create']);
+        Permission::create(['guard_name' => 'api', 'name' => 'todos.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'todos.update']);
+        Permission::create(['guard_name' => 'api', 'name' => 'todos.delete']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.create']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.update']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.delete']);
     }
 }
