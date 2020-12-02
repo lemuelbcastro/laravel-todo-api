@@ -18,24 +18,29 @@ class RoleSeeder extends Seeder
             'guard_name' => 'api',
             'name' => 'administrator',
         ])->givePermissionTo([
-            'create todos',
-            'fetch todos',
-            'update todos',
-            'delete todos',
-            'create users',
-            'fetch users',
-            'update users',
-            'delete users',
+            'permissions.view',
+            'roles.create',
+            'roles.view',
+            'roles.update',
+            'roles.delete',
+            'todos.create',
+            'todos.view',
+            'todos.update',
+            'todos.delete',
+            'users.create',
+            'users.view',
+            'users.update',
+            'users.delete',
         ]);
 
         Role::create([
             'guard_name' => 'api',
             'name' => 'user',
         ])->givePermissionTo([
-            'create todos',
-            'fetch todos',
-            'update todos',
-            'delete todos',
+            'todos.create',
+            'todos.view',
+            'todos.update',
+            'todos.delete',
         ]);
     }
 }
