@@ -23,6 +23,9 @@ class RoleSeeder extends Seeder
             'roles.view',
             'roles.update',
             'roles.delete',
+            'roles.permissions.create',
+            'roles.permissions.view',
+            'roles.permissions.delete',
             'todos.create',
             'todos.view',
             'todos.update',
@@ -31,6 +34,9 @@ class RoleSeeder extends Seeder
             'users.view',
             'users.update',
             'users.delete',
+            'users.roles.create',
+            'users.roles.view',
+            'users.roles.delete',
         ]);
 
         Role::create([

@@ -21,6 +21,9 @@ class PermissionSeeder extends Seeder
         Permission::create(['guard_name' => 'api', 'name' => 'roles.view']);
         Permission::create(['guard_name' => 'api', 'name' => 'roles.update']);
         Permission::create(['guard_name' => 'api', 'name' => 'roles.delete']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.permissions.create']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.permissions.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'roles.permissions.delete']);
         Permission::create(['guard_name' => 'api', 'name' => 'todos.create']);
         Permission::create(['guard_name' => 'api', 'name' => 'todos.view']);
         Permission::create(['guard_name' => 'api', 'name' => 'todos.update']);
@@ -29,5 +32,8 @@ class PermissionSeeder extends Seeder
         Permission::create(['guard_name' => 'api', 'name' => 'users.view']);
         Permission::create(['guard_name' => 'api', 'name' => 'users.update']);
         Permission::create(['guard_name' => 'api', 'name' => 'users.delete']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.roles.create']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.roles.view']);
+        Permission::create(['guard_name' => 'api', 'name' => 'users.roles.delete']);
     }
 }
