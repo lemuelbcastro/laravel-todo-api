@@ -27,25 +27,16 @@ Route::group([
 ], function () {
     Route::apiResource('permissions', PermissionController::class)->only([
         'index', 'show',
-    ])->middleware('permission:permissions.view');
+    ]);
 
-    Route::group([
-        'middleware' => 'role:administrator',
-    ], function () {
-        Route::apiResource('roles', RoleController::class);
-        Route::apiResource('roles.permissions', RolePermissionController::class)->except([
-            'show', 'update',
-        ]);
-    });
+    Route::apiResource('roles', RoleController::class);
+    Route::apiResource('roles.permissions', RolePermissionController::class)->except([
+        'show', 'update',
+    ]);
+    Route::apiResource('todos', TodoController::class);
 
-    Route::apiResource('todos', TodoController::class)->middleware('role:administrator|user');
-
-    Route::group([
-        'middleware' => 'role:administrator',
-    ], function () {
-        Route::apiResource('users', UserController::class);
-        Route::apiResource('users.roles', UserRoleController::class)->except([
-            'show', 'update',
-        ]);
-    });
+    Route::apiResource('users', UserController::class);
+    Route::apiResource('users.roles', UserRoleController::class)->except([
+        'show', 'update',
+    ]);
 });

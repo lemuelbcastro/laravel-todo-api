@@ -6,10 +6,14 @@ use App\Http\Requests\StoreTodo;
 use App\Http\Requests\UpdateTodo;
 use App\Http\Resources\Todo as TodoResource;
 use App\Models\Todo;
-use Illuminate\Auth\Access\AuthorizationException;
 
 class TodoController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Todo::class, 'todo');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,10 +49,6 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        if ($todo->author_id !== auth()->user()->id) {
-            throw new AuthorizationException;
-        }
-
         return new TodoResource($todo);
     }
 
