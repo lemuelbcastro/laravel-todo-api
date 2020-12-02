@@ -26,16 +26,20 @@ Route::group([
     'middleware' => 'auth:sanctum',
 ], function () {
     Route::apiResources([
+        'roles' => RoleController::class,
         'todos' => TodoController::class,
         'users' => UserController::class,
-        'roles' => RoleController::class,
+    ]);
+
+    Route::apiResource('permissions', PermissionController::class)->only([
+        'index', 'show',
     ]);
 
     Route::apiResource('roles.permissions', RolePermissionController::class)->except([
         'show', 'update',
     ]);
 
-    Route::apiResource('permissions', PermissionController::class)->only([
-        'index', 'show',
+    Route::apiResource('users.roles', UserRoleController::class)->except([
+        'show', 'update',
     ]);
 });
