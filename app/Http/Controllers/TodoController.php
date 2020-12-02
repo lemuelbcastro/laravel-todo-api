@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Todo as TodoResource;
 use App\Http\Requests\StoreTodo;
 use App\Http\Requests\UpdateTodo;
+use App\Http\Resources\Todo as TodoResource;
 use App\Models\Todo;
 use Illuminate\Auth\Access\AuthorizationException;
 

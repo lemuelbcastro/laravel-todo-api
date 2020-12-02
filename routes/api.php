@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'prefix' => 'auth'
+    'prefix' => 'auth',
 ], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('register', [AuthController::class, 'register']);
@@ -23,13 +23,23 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => 'auth:sanctum'
+    'middleware' => 'auth:sanctum',
 ], function () {
     Route::apiResources([
+        'roles' => RoleController::class,
         'todos' => TodoController::class,
+        'users' => UserController::class,
     ]);
 
-    Route::apiResources([
-        'users' => UserController::class,
+    Route::apiResource('permissions', PermissionController::class)->only([
+        'index', 'show',
+    ]);
+
+    Route::apiResource('roles.permissions', RolePermissionController::class)->except([
+        'show', 'update',
+    ]);
+
+    Route::apiResource('users.roles', UserRoleController::class)->except([
+        'show', 'update',
     ]);
 });
