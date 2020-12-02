@@ -23,6 +23,7 @@ class RolePermissionController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRolePermission $request, Role $role)
@@ -33,7 +34,7 @@ class RolePermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
     public function destroy(Role $role, Permission $permission)
