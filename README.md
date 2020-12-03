@@ -1,6 +1,8 @@
-# Laravel Sanctum Token Based Authentication
+# Laravel Todo API
 
-A simple [Laravel](https://laravel.com/) API boilerplate equipped with [Sanctum](https://laravel.com/docs/master/sanctum) token based authentication.
+A simple RESTful API for managing to-do items. Equipped with [Sanctum](https://laravel.com/docs/master/sanctum) token based authentication and [laravel-permission](https://github.com/spatie/laravel-permission) permission based authorization.
+
+This project aims to demonstrate a real-world [Laravel](https://laravel.com/) RESTful API that adheres to the community's best practices and coding standards.
 
 ## Installation
 
@@ -31,25 +33,17 @@ To the run the migrations, execute the `migrate` command:
 php artisan migrate
 ```
 
-Optionally, you can run the seeder to create test user data using this command:
+Run the seeder to create users, roles, and permissions using this command:
 
 ```bash
 php artisan db:seed
 ```
 
-## API Endpoints 
+## Postman Collection
 
-| Method | Path              | Description                  |
-|--------|-------------------|------------------------------|
-| POST   | api/auth/register | Register a new account       |
-| POST   | api/auth/login    | Login to an existing account |
-| GET    | api/auth/user     | Fetch the authenticated user |
-
-## Postman Collection 
-
-Published documentation of the Postman collection can be found [here](https://documenter.getpostman.com/view/8446183/TVKFzwCQ). You can run the collection by clicking the `► Run in Postman` button on the documentation page. The `Development` environment must be set as the active environment.
+Published documentation of the Postman collection can be found [here](https://documenter.getpostman.com/view/8446183/TVmMewh8). You can run the collection by clicking the `► Run in Postman` button on the documentation page. The `Development` environment must be set as the active environment.
 
 | Environment Variable | Description                                     |
-|----------------------|-------------------------------------------------|
+| -------------------- | ----------------------------------------------- |
 | server               | Must be manually set with the application's URL |
 | token                | Automatically set after a successful login      |
