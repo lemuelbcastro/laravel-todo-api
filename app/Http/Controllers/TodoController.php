@@ -39,6 +39,8 @@ class TodoController extends Controller
         $todo->author_id = $request->user()->id;
         $todo->schedule_date = $request->schedule_date;
         $todo->save();
+
+        return new TodoResource($todo);
     }
 
     /**

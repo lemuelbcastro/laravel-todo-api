@@ -35,6 +35,8 @@ class RoleController extends Controller
         $role = new Role();
         $role->name = $request->name;
         $role->save();
+
+        return new RoleResource($role);
     }
 
     /**
@@ -59,6 +61,8 @@ class RoleController extends Controller
     {
         $role->name = $request->name;
         $role->save();
+
+        return new RoleResource($role);
     }
 
     /**
