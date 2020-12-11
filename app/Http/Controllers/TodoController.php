@@ -6,6 +6,8 @@ use App\Http\Requests\StoreTodo;
 use App\Http\Requests\UpdateTodo;
 use App\Http\Resources\Todo as TodoResource;
 use App\Models\Todo;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class TodoController extends Controller
 {
@@ -22,7 +24,17 @@ class TodoController extends Controller
     public function index()
     {
         return TodoResource::collection(
-            Todo::all()->where('author_id', auth()->user()->id)
+            QueryBuilder::for(Todo::class)
+                ->where('author_id', auth()->user()->id)
+                ->allowedFilters([
+                    AllowedFilter::partial('name'),
+                    AllowedFilter::exact('completed'),
+                    AllowedFilter::scope('schedule_date_before'),
+                    AllowedFilter::scope('schedule_date_after'),
+                    AllowedFilter::scope('schedule_date_between'),
+                ])
+                ->allowedSorts(['name', 'completed', 'schedule_date'])
+                ->get()
         );
     }
 

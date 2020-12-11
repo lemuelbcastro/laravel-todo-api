@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Http\Resources\User as UserResource;
 use App\Models\User;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class UserController extends Controller
 {
@@ -21,7 +22,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection(User::all());
+        return UserResource::collection(
+            QueryBuilder::for(User::class)
+                ->allowedFilters(['name', 'email'])
+                ->allowedSorts(['name', 'email'])
+                ->get()
+        );
     }
 
     /**
