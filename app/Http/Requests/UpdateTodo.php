@@ -25,7 +25,7 @@ class UpdateTodo extends FormRequest
     {
         return [
             'name' => 'required',
-            'schedule_date' => 'required|date_format:Y-m-d|after_or_equal:today',
+            'schedule_date' => 'required|date_format:Y-m-d',
         ];
     }
 }
