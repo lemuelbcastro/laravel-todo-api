@@ -25,7 +25,6 @@ class StoreTodo extends FormRequest
     {
         return [
             'name' => 'required',
-            'author_id' => 'required|exists:users,id',
             'schedule_date' => 'required|date_format:Y-m-d|after_or_equal:today',
         ];
     }
